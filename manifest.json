@@ -1,0 +1,12 @@
+{
+  "name": "NLP snippets",
+  "version": "1.0",
+  "description": "Snippets of Natural Language Processing in Javascript",
+  "app": {
+    "launch": {
+      "local_path": "nlpslides.html"
+    }
+  },
+  "offline_enabled": true
+  
+}
