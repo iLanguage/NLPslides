@@ -8,16 +8,20 @@ var D = function(i,j){
 
 }
 var draw_table = function( xlength, ylength){
-	document.getElementById("word_edit_distance").innerHTML= "<div id='graphic'><table border='1' id='table'></table></div>";
-  	for( var y = -1; y < ylength; y++){
+	  document.getElementById("word_edit_distance").innerHTML= "<div id='graphic'><table id='table'></table></div>";
+  	var cellCount = 0;
+    for( var y = -1; y < ylength; y++){
   		var tr = document.createElement("tr");
    		tr.setAttribute("id","row"+y);
    		for( var x = -1; x < xlength; x++ ){
    			var td = document.createElement("td");
 	    	td.setAttribute("id",x+","+y);
+        if(cellCount % 2 == 0) addClass(td,"shaded");
+        cellCount++;
 	    	td.innerHTML=x+","+y;
 	    	tr.appendChild(td);
    		}
+      cellCount++;
    		document.getElementById("table").appendChild(tr);
   	}
 }
