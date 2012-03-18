@@ -14,3 +14,8 @@ function removeClass(ele,cls) {
       ele.className=ele.className.replace(reg,' ');
   }
 }
+function preappend(parentid,child){
+	var parent = document.getElementById(parentid);
+	if(parent.firstChild) parent.insertBefore(child, parent.firstChild);
+	else parent.appendChild(child);
+}

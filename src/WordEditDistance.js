@@ -7,7 +7,7 @@ var D = function(i,j){
   var inschar= 1;
   var delchar = 1;
   var choices =[];
-
+  var backtrace = ["←","↓","↙"];//↑↖
   var x = document.getElementById(divid+i+",-1").innerHTML;
   var y = document.getElementById(divid+"-1,"+j).innerHTML;
   var beforei = parseInt(i-1);
@@ -15,19 +15,22 @@ var D = function(i,j){
 
   
   console.log("Calculating the edit distance of "+x+ " and "+y);
-  var diagonal = document.getElementById(divid+ beforei+","+beforej ).innerHTML;
+  choices.push( parseInt(document.getElementById(divid+ beforei+","+j).innerHTML.replace(/[←↑↖↓↙]/g,"") ) + inschar);
+  choices.push( parseInt(document.getElementById(divid+ i+","+beforej).innerHTML.replace(/[←↑↖↓↙]/g,"") ) + inschar);
+  var diagonal = document.getElementById(divid+ beforei+","+beforej ).innerHTML.replace(/[←↑↖↓↙]/g,"");
   if(x.indexOf(y) < 0) {
       choices.push( parseInt(diagonal) + substichar );
   }else{
       choices.push( parseInt(diagonal) + 0 );
   }
   
-  choices.push( parseInt(document.getElementById(divid+ beforei+","+j).innerHTML) + inschar);
-  choices.push( parseInt(document.getElementById(divid+ i+","+beforej).innerHTML) + inschar);
-  
   var mindist = (Math.min(choices[0],choices[1],choices[2]))
+  if (mindist != choices[0]) backtrace[0] = "";
+  if (mindist != choices[1]) backtrace[1] = "";
+  if (mindist != choices[2]) backtrace[2] = "";
+
   console.log("\t "+mindist);
-  return mindist;
+  return backtrace[0]+backtrace[1]+backtrace[2]+mindist;
 };
 var draw_table = function( divid, xlength, ylength, callback ){
 	  document.getElementById(divid).innerHTML= "<div id='graphic'><table id='"+divid+"table'></table></div>";
@@ -43,8 +46,9 @@ var draw_table = function( divid, xlength, ylength, callback ){
 	    	td.innerHTML="";
 	    	tr.appendChild(td);
    		}
-      cellCount++;
-   		document.getElementById(divid+"table").appendChild(tr);
+      //cellCount++;
+   		//document.getElementById(divid+"table").appendChild(tr);
+      preappend(divid+'table',tr);
   	}
     if (typeof callback == "function" ) {
       callback();

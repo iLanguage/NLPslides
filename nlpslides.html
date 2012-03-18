@@ -23,14 +23,25 @@
 </section>
 
 <section>
-    <h3>Word Edit Distance</h3>
-    <div style="clear:both;">
-    <div id="word_edit_distance1" style="float:left; width:50%;" > </div>
-    <div id="word_edit_distance2" style="float:left; width:50%; "> </div>
-    </div>
+    <h3>Word Edit Distance  </h3>
+    
+    <p>Dynamic programming with backtrace<p>
+    
+    <div id="wed3" style="margin:auto; "> </div>
 
 </section>
 
+<section>
+    <h3>Metathesis typos</h3>
+    
+    <p>The candidates: hte vs. hie<p>
+    
+    <div style="clear:both; margin:auto;">
+      <div id="wed1" style="float:left; width:50%; " > </div>
+      <div id="wed2" style="float:left; width:50%; "> </div>
+    </div>
+
+</section>
 
 
 <div id="progress-bar"></div>
@@ -39,11 +50,14 @@
 <script src="./src/Utils.js"></script>
 <script src="./src/WordEditDistance.js"></script>
 <script> 
-  //draw_word_axes('ᐋᓐᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ','ᐋᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ');
-  draw_word_edit_distance('word_edit_distance1','#hte house', '#the house', function(){
-    draw_word_edit_distance('word_edit_distance2','#hte house', '#hie house');
-  });
   
+  draw_word_edit_distance('wed3','ᐋᓐᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ','ᐋᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ');
+  
+  draw_word_edit_distance('wed1','#hte', '#the', function(){
+    draw_word_edit_distance('wed2','#hte', '#hie',function(){
+       
+    });
+  });
 </script> 
 
 </body>
