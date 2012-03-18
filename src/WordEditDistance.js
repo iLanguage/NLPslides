@@ -119,12 +119,13 @@ var draw_alignment_path = function(divid, xlength, ylength){
 var draw_alignment_path_origin = function(divid,xlength,ylength, x, y){
   // x = x +1;
   // y = y +1;
-  if (x >= xlength-1  || y >= ylength-1) {
-    if (x== y ) return;
-    //otherwise go back and start over
-  }
   var el = document.getElementById(divid+x+","+y);
   addClass(el, "optimal");
+  if (x >= xlength-1  || y >= ylength-1) {
+    //if (x== y ) 
+    return;
+    //otherwise go back and start over
+  }
   var choices =[];
   var afteri = parseInt(x+1);
   var afterj = parseInt(y+1);
