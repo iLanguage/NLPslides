@@ -23,25 +23,35 @@
 </section>
 
 <section>
-    <h3>Word Edit Distance  </h3>
+    <h3>Word Edit Distance</h3>
     
     <p>Dynamic programming with backtrace<p>
     
     <div id="wed3" style="margin:auto; "> </div>
 
 </section>
-
 <section>
-    <h3>Metathesis typos</h3>
+  <h3>Metathesis typos</h3>
     
-    <p>The candidates: hte vs. hie<p>
+  <p>The candidates: hte vs. hie<p>
     
-    <div style="clear:both; margin:auto;">
+  <div style="clear:both; margin:auto;">
       <div id="wed1" style="float:left; width:50%; " > </div>
       <div id="wed2" style="float:left; width:50%; "> </div>
-    </div>
-
+  </div>
 </section>
+
+<section>
+    <h3>Spellchecking</h3>
+    <ul>
+        <li>Minimum Edit Distance</li>
+        <li>Confusion Matrix (from gold standard of typos and spelling errors)</li>
+        <li>Weighted by phonological similarity {vowels}, {place of articulation}</li>
+        <li>Weighted by keyboard proximity</li>
+    </ul>
+</section>
+
+
 
 
 <div id="progress-bar"></div>
@@ -51,7 +61,8 @@
 <script src="./src/WordEditDistance.js"></script>
 <script> 
   
-  draw_word_edit_distance('wed3','ᐋᓐᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ','ᐋᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ');
+  //draw_word_edit_distance('wed3','#ᐋᓐᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ','#ᐋᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ');
+  draw_word_edit_distance('wed3','#execution','#intention');
   
   draw_word_edit_distance('wed1','#hte', '#the', function(){
     draw_word_edit_distance('wed2','#hte', '#hie',function(){

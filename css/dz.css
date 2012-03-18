@@ -37,6 +37,18 @@
   .shaded{
     background-color: #000;
   }
+  .insertion{
+    background-color: #008;
+  }
+  .deletion{
+    background-color: #800;
+  }
+  .substitution{
+    background-color: #808;
+  }
+  .optimal{
+    background-color: #080;
+  }
   input{
     text-decoration: none;
     white-space: nowrap;
