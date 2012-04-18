@@ -1,3 +1,22 @@
+function hasClass(ele,cls) {
+  return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+}
+function addClass(ele,cls) {
+  if (!this.hasClass(ele,cls)) ele.className += " "+cls;
+}
+function removeClass(ele,cls) {
+  if (hasClass(ele,cls)) {
+      var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)','g');
+      ele.className=ele.className.replace(reg,' ');
+  }
+}
+function preappend(parentid,child){
+  var parent = document.getElementById(parentid);
+  if(parent.firstChild) parent.insertBefore(child, parent.firstChild);
+  else parent.appendChild(child);
+}
+
+
 var D = function(i,j){
   if( i == -1 && j == -1) return "";
   if( i == 0 ) {
@@ -162,9 +181,3 @@ var draw_word_edit_distance = function(divid, stringx, stringy, callback){
 
 
 
-var drawWED = function(){
-  draw_word_edit_distance('wed3', '#'+document.form.word1.value, '#'+document.form.word2.value);
-  return true;
-};
-
-drawWED();
