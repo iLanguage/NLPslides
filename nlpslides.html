@@ -24,7 +24,13 @@
 
 <section>
     <h3>Word Edit Distance</h3>
-    
+
+    <form name= "form" action="demo_form.asp">
+  Word1: <input type="text" name="word1" id="word1" value= "nunavut" onblur="drawWED()"/><br />
+  Word2: <input type="text" name="word2" id="word2" value= "nunavik" onblur="drawWED()"/><br />
+</form>
+
+
     <p>Dynamic programming with backtrace<p>
     
     <div id="wed3" style="margin:auto; "> </div>
@@ -56,20 +62,32 @@
 
 <div id="progress-bar"></div>
 
+
+
 <script src="./src/dz.js"></script>
 <script src="./src/Utils.js"></script>
 <script src="./src/WordEditDistance.js"></script>
 <script> 
   
+var drawWED = function(){
+  draw_word_edit_distance('wed3', '#'+document.form.word1.value, '#'+document.form.word2.value);
+  return true;
+};
+
+drawWED();
   //draw_word_edit_distance('wed3','#ᐋᓐᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ','#ᐋᓂᐊᖃᕐᓇᖏᑦᑐᓕᕆᔨ');
-  draw_word_edit_distance('wed3','#execution','#intention');
+ // draw_word_edit_distance('wed3',word1,word2);
   
-  draw_word_edit_distance('wed1','#hte', '#the', function(){
-    draw_word_edit_distance('wed2','#hte', '#hie',function(){
+  // draw_word_edit_distance('wed1','#hte', '#the', function(){
+  //   draw_word_edit_distance('wed2','#hte', '#hie',function(){
        
-    });
-  });
+  //   });
+  // });
 </script> 
+
+
+
+
 
 </body>
 </html>

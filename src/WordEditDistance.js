@@ -159,3 +159,12 @@ var draw_word_edit_distance = function(divid, stringx, stringy, callback){
       callback();
   }
 };
+
+
+
+var drawWED = function(){
+  draw_word_edit_distance('wed3', '#'+document.form.word1.value, '#'+document.form.word2.value);
+  return true;
+};
+
+drawWED();
